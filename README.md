@@ -32,7 +32,7 @@ This setup includes smart tab completion, history management, syntax highlightin
 
 Example:
 ```bash
-┌──(blvck)-[~/projects]
+┌──(username)-[~/projects]
 └─$
 ```
 
