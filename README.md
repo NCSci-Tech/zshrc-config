@@ -95,7 +95,7 @@ chsh -s /usr/bin/zsh
 ```
 !! Log out and back in for the change to take effect.
 
-Copy or symlink the .zshrc file:
+Copy .zshrc file to home directory(~) or symlink the .zshrc file:
 ```bash
 ln -s ~/zsh-config/.zshrc ~/.zshrc
 ```
