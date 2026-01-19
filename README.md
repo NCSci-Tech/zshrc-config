@@ -83,7 +83,6 @@ sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions
 ```
 **Debian / Ubuntu (apt)**
 ```bash
-sudo apt update
 sudo apt install zsh zsh-syntax-highlighting zsh-autosuggestions
 ```
 **Fedora (dnf)**
