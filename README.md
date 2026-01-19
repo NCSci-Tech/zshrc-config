@@ -1,6 +1,4 @@
-A minimal, clean, and functional Zsh configuration focused on productivity, usability, and a polished terminal experience.
-
-This setup includes smart tab completion, history management, syntax highlighting, autosuggestions, and a custom prompt.
+A minimal, clean, and functional Zsh configuration, this setup includes smart tab completion, history management, syntax highlighting, autosuggestions, and a custom prompt.
 
 ************************************
 ***Features***
