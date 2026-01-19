@@ -3,7 +3,7 @@ A minimal, clean, and functional Zsh configuration focused on productivity, usab
 This setup includes smart tab completion, history management, syntax highlighting, autosuggestions, and a custom prompt.
 
 ************************************
-*Features*
+***Features***
 ************************************
  - Advanced Tab Completion
  - Powered by compinit and zstyle, this configuration enables:
@@ -27,19 +27,19 @@ This setup includes smart tab completion, history management, syntax highlightin
     - bindkey -e
 
 ************************************
-*Prompt*
+***Prompt***
 ************************************
 
 Example:
-'''bash
+```bash
 ┌──(blvck)-[~/projects]
 └─$
-'''
+```
 
 Colors are handled using Zsh’s built-in %F{} formatting.
 
 ************************************
-*Plugins*
+***Plugins***
 ************************************
 
 This configuration uses the following plugins:
@@ -56,7 +56,7 @@ Plugins are sourced from:
 Ensure these plugins are installed via your system package manager.
 
 ************************************
-*Aliases*
+***Aliases***
 ************************************
 
 Included alias:
@@ -65,7 +65,7 @@ Included alias:
 You can add or modify aliases as needed.
 
 ************************************
-*Shell Configuration*
+***Shell Configuration***
 ************************************
 
 Ensures the shell environment matches the running shell:
@@ -73,30 +73,35 @@ Ensures the shell environment matches the running shell:
 e.g. export SHELL=/usr/bin/zsh
 
 ************************************
-*Installation*
+***Installation***
 ************************************
 Install Zsh
 
 Choose your distribution and run the appropriate command.
 
 **Arch Linux / Manjaro (pacman)**
+```bash
 sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions
-
+```
 **Debian / Ubuntu (apt)**
+```bash
 sudo apt update
 sudo apt install zsh zsh-syntax-highlighting zsh-autosuggestions
-
+```
 **Fedora (dnf)**
+```bash
 sudo dnf install zsh zsh-syntax-highlighting zsh-autosuggestions
-
+```
 Set Zsh as Default Shell (Optional)
+```bash
 chsh -s /usr/bin/zsh
-
+```
 !! Log out and back in for the change to take effect.
 
 Copy or symlink the .zshrc file:
+```bash
 ln -s ~/zsh-config/.zshrc ~/.zshrc
-
+```
 Reload the configuration:
 source ~/.zshrc
 
