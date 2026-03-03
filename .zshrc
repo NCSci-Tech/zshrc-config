@@ -19,8 +19,19 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # Prompt style
+VIRTUAL_ENV_DISABLE_PROMPT=1
+
 PROMPT='%F{blue}┌──(%F{magenta}username%F{yellow}%F{blue})-[%F{yellow}%~%F{blue}]
 %F{blue}└─%F{magenta}$%f '
+
+# Show venv name on right side when activate
+precmd() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        RPROMPT="%F{cyan}($(basename $VIRTUAL_ENV))%f"
+    else
+        RPROMPT=""
+    fi
+}
 
 # Set SHELL to match running SHELL
 export SHELL=/usr/bin/zsh
@@ -31,3 +42,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias update='~/./.update.sh'
+alias l='ls -CF'
