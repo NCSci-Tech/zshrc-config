@@ -21,7 +21,7 @@ bindkey -e
 # Prompt style
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PROMPT='%F{blue}┌──(%F{magenta}username%F{yellow}%F{blue})-[%F{yellow}%~%F{blue}]
+PROMPT='%F{blue}┌──(%F{magenta}%n%F{yellow}%F{blue})-[%F{yellow}%~%F{blue}]
 %F{blue}└─%F{magenta}$%f '
 
 # Show venv name on right side when activate
