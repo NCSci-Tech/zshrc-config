@@ -1,8 +1,7 @@
 A minimal, clean, and functional Zsh configuration, this setup includes smart tab completion, history management, syntax highlighting, autosuggestions, and a custom prompt.
 
-************************************
 ***Features***
-************************************
+
  - Advanced Tab Completion
  - Powered by compinit and zstyle, this configuration enables:
  - Case-insensitive completion
@@ -24,9 +23,7 @@ A minimal, clean, and functional Zsh configuration, this setup includes smart ta
  - Uses Emacs-style keybindings by default:
     - bindkey -e
 
-************************************
 ***Prompt***
-************************************
 
 Example:
 ```bash
@@ -36,9 +33,7 @@ Example:
 
 Colors are handled using Zsh’s built-in %F{} formatting.
 
-************************************
 ***Plugins***
-************************************
 
 This configuration uses the following plugins:
 
@@ -53,9 +48,7 @@ Plugins are sourced from:
 
 Ensure these plugins are installed via your system package manager.
 
-************************************
 ***Aliases***
-************************************
 
 Included alias:
  - alias update='~/.update.sh'
@@ -65,17 +58,14 @@ Included alias:
 
 You can add or modify aliases as needed.
 
-************************************
 ***Shell Configuration***
-************************************
 
 Ensures the shell environment matches the running shell:
 
 e.g. export SHELL=/usr/bin/zsh
 
-************************************
 ***Installation***
-************************************
+
 Install Zsh
 
 Choose your distribution and run the appropriate command.
@@ -105,9 +95,8 @@ ln -s ~/zsh-config/.zshrc ~/.zshrc
 Reload the configuration:
 source ~/.zshrc
 
-************************************
 *Requirements*
-************************************
+
  - Zsh
  - zsh-syntax-highlighting
  - zsh-autosuggestions
