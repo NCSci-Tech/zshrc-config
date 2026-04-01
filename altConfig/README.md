@@ -5,4 +5,4 @@ zsh-syntax-highlighting
 zsh-autosuggestions
 Any Nerd Font
 
-Set nerd font in terminal settings and source .zshrc replacing your current config.
+Set nerd font in terminal settings and source .zshrc after replacing your current config.
