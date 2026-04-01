@@ -1,0 +1,86 @@
+# ── Completion (compinstall) ───────────────────────────────────────────────────
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' \
+    'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+    'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=* r:|=*' \
+    'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+zstyle :compinstall filename '/home/username/.zshrc'
+autoload -Uz compinit
+compinit
+
+# ── History ────────────────────────────────────────────────────────────────────
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# ── Shell options ──────────────────────────────────────────────────────────────
+setopt autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -e
+
+# ── Prompt ─────────────────────────────────────────────────────────────────────
+autoload -U colors && colors
+setopt PROMPT_SUBST
+VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Nerd Font glyphs
+_PL_SEP=''       # solid powerline right arrow
+_PL_SEP_THIN=''  # thin powerline right arrow
+_ICO_DIR=''      # folder icon
+_ICO_OK='✔'      # success
+_ICO_FAIL='✘'    # failure
+_ICO_PROMPT='❯'  # prompt char
+
+# Colors
+# rgb(20,50,20) = very dark custom green (truecolor)   52 = very dark crimson
+
+_BG_GREEN=$'\e[48;2;20;50;20m'
+_FG_GREEN=$'\e[38;2;20;50;20m'
+_RESET=$'\e[0m'
+
+# Load datetime module for millisecond timing
+zmodload zsh/datetime
+
+# Track command execution time in milliseconds
+_cmd_start=0
+preexec() {
+    _cmd_start=$EPOCHREALTIME
+}
+
+# Right prompt: execution time only
+precmd() {
+    if [[ $_cmd_start -gt 0 ]]; then
+        local elapsed=$(printf "%.3f" $(( EPOCHREALTIME - _cmd_start )))
+        RPROMPT="%{%F{244}%}${elapsed}s%{%f%}"
+        _cmd_start=0
+    else
+        RPROMPT=""
+    fi
+}
+
+# Venv segment — dark crimson (52), only shown when active
+_venv_seg() {
+    [[ -n "$VIRTUAL_ENV" ]] || return
+    printf '%%{%%K{52}%%F{white}%%} %s %%{%%F{52}%%}%s%%{%%k%%f%%}' \
+        "$(basename $VIRTUAL_ENV)" "$_PL_SEP"
+}
+
+# Main prompt: venv? → dir (very dark truecolor green) → white arrow
+PROMPT='$(_venv_seg)%{${_BG_GREEN}%}%{%F{white}%} ${_ICO_DIR} %~ %{${_FG_GREEN}%}%{${_RESET}%}${_PL_SEP}%{%f%} %{%F{white}%}${_ICO_PROMPT}%{%f%} '
+
+export PS2='%{%F{yellow}%}${_PL_SEP_THIN}%{%f%} '
+
+# ── Environment ────────────────────────────────────────────────────────────────
+export SHELL=/usr/bin/zsh
+export PATH="$PATH:/home/username/.local/bin"
+
+# ── Plugins ────────────────────────────────────────────────────────────────────
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ── Aliases ────────────────────────────────────────────────────────────────────
+alias l='ls -CF --color=auto'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
