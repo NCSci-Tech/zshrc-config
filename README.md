@@ -58,7 +58,7 @@ Ensure these plugins are installed via your system package manager.
 ************************************
 
 Included alias:
- - alias update='~/./.update.sh'
+ - alias update='~/.update.sh'
  - alias l='ls -CF --color=auto'
  - alias ls='ls --color=auto'
  - alias grep='grep --color=auto'
