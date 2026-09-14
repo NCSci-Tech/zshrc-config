@@ -42,3 +42,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias l='ls -CF'
+
+
+# fix home and end button for term
+bindkey '\e[H' beginning-of-line
+bindkey '\e[F' end-of-line
