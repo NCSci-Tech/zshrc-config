@@ -21,8 +21,8 @@ bindkey -e
 # Prompt style
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PROMPT='%F{blue}┌──(%F{magenta}%n%F{yellow}%F{blue})-[%F{yellow}%~%F{blue}]
-%F{blue}└─%F{magenta}$%f '
+PROMPT='%F{8}┌─[%F{136}%~%F{8}]
+%F{8}└%F{#800000}>%f '
 
 # Show venv name on right side when activate
 precmd() {
